@@ -1,7 +1,6 @@
 <CsoundSynthesizer>
 
 <CsOptions>
---opcode-lib=bformdec2.dylib //OSX
 </CsOptions>
 
 <CsInstruments>
