@@ -71,3 +71,10 @@ aout[] -– loudspeaker specific output signals.
 
 ### Example
 See test/test_binaural.csd
+
+### Reference
+
+For more information about the opcode and technical details see:
+
+Pablo Zinemanas, Martín Rocamora and Luis Jure. Improving Csound's Ambisonics decoders. Fifth International Csound Conference – ICSC2019. Italy, 2019.
+
