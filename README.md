@@ -38,13 +38,14 @@ idecoder -- select the type of decoder
 
 idistance -- select the distance (meters) to the loudspeaker (radius if regular configuration)
 
-By default, the distance is set to 1 meter.
+> By default, the distance is set to 1 meter.
 
 ifreq - frequency cut (Hz) of the band splitting filter (only importante if idecoder=0)
 
-By default the frequency is set to 400 Hz.
+> By default the frequency is set to 400 Hz.
 
 imix - type of mix of the velocity and energy decoders' outputs
+
 0. Energy
 1. RMS
 2. Amplitude
