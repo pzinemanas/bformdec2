@@ -15,8 +15,7 @@ Examples of paths:
 
 OSX:
 ```
-g++ -O2 -dynamiclib -o <path to opcode64 folder>/bformdec2.dylib bformdec2.cpp
--DUSE_DOUBLE -I<path to csound headers>
+g++ -O2 -dynamiclib -o <path to opcode64 folder>/bformdec2.dylib bformdec2.cpp -DUSE_DOUBLE -I<path to csound headers>
 ```
 
 Examples of paths:
