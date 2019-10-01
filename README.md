@@ -4,11 +4,25 @@
 
 Linux:
 ```
-g++ -O2 -shared -o /usr/lib64/csound/plugins64/bformdec2.so -fPIC bformdec2.cpp -I /usr/local/include/csound/
+g++ -O2 -shared -o <path to opcode64 folder>/bformdec2.so -fPIC bformdec2.cpp -I <path to csound headers>
 ```
+
+Examples of paths:
+```
+<path to opcode64 folder> --> /usr/lib64/csound/plugins64
+<path to csound headers> --> /usr/local/include/csound/
+```
+
 OSX:
 ```
-g++ -O2 -dynamiclib -o /Library/Frameworks/CsoundLib64.framework/Versions/6.0/Resources/Opcodes64/bformdec2.dylib bformdec2.cpp -DUSE_DOUBLE -I/Library/Frameworks/CsoundLib64.framework/Headers
+g++ -O2 -dynamiclib -o <path to opcode64 folder>/bformdec2.dylib bformdec2.cpp
+-DUSE_DOUBLE -I<path to csound headers>
+```
+
+Examples of paths:
+```
+<path to opcode64 folder> --> /Library/Frameworks/CsoundLib64.framework/Versions/6.0/Resources/Opcodes64 
+<path to csound headers> --> /Library/Frameworks/CsoundLib64.framework/Headers
 ```
 
 ## Sintax and usage
