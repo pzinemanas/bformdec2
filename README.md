@@ -3,18 +3,18 @@
 ## Compile
 
 Linux:
-
+```
 g++ -O2 -shared -o /usr/lib64/csound/plugins64/bformdec2.so -fPIC bformdec2.cpp -I /usr/local/include/csound/
-
+```
 OSX:
-
+```
 g++ -O2 -dynamiclib -o /Library/Frameworks/CsoundLib64.framework/Versions/6.0/Resources/Opcodes64/bformdec2.dylib bformdec2.cpp -DUSE_DOUBLE -I/Library/Frameworks/CsoundLib64.framework/Headers
-
+```
 
 ## Sintax and usage
-
+```
 aout[] bformdec2 isetup, abform[], [idecoder, idistance, ifreq, imix]
-
+```
 ### Initialization
 
 Note that as bformdec1 horizontal angles are measured anticlockwise in this description.
@@ -43,6 +43,7 @@ imix - type of mix of the velocity and energy decoders' outputs
 0. Energy
 1. RMS
 2. Amplitude
+
 
 ### Performance
 abform[] -- input signal array in the B format.
