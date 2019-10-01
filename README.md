@@ -39,9 +39,9 @@ isetup –- loudspeaker setup. There are five supported setups:
 3.	5.0 - L(30),R(-30),C(0),BL(110),BR(-110). Note that many people do not actually use the angles above for their speaker arrays and a good decode for DVD etc can be achieved using the Quad configuration to feed L, R, BL and BR (leaving C silent).
 4.	Octagon - FFL(22.5),FLL(67.5),BLL(112.5),BBL(157.5),BBR(-157.5),BRR(-112.5),FRR(-67.5),FFR(-22.5). This is a first-, second- or third-order decode, depending on the number of input channels.
 5.	Cube - FLD(45,-35.26),FLU(45,35.26),BLD(135,-35.26),BLU(135,35.26),BRD(-135,-35.26),BRU(-135,35.26),FRD(-45,-35.26),FRU(-45,35.26). This is a first-order decode.
-6. Hexagon. This is a first- or second- order decode
-21. 2D binaural configuration.  
-31. 3D binaural configuration.
+6. Hexagon. This is a first- or second- order decode.
+21. 2D binaural configuration. This first decode to a octagon configuration and then apply HRTF filters.
+31. 3D binaural configuration. This first decode to a dodecahedron configuration and then apply HRTF filters.
 
 idecoder -- select the type of decoder
 
