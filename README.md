@@ -4,7 +4,7 @@
 
 Linux:
 ```
-g++ -O2 -shared -o <path to opcode64 folder>/bformdec2.so -fPIC bformdec2.cpp -I <path to csound headers>
+g++ -O2 -shared -o <path to opcode64 folder>/libbformdec2.so -fPIC bformdec2.cpp -I <path to csound headers>
 ```
 
 Examples of paths:
@@ -15,7 +15,7 @@ Examples of paths:
 
 OSX:
 ```
-g++ -O2 -dynamiclib -o <path to opcode64 folder>/bformdec2.dylib bformdec2.cpp -DUSE_DOUBLE -I<path to csound headers>
+g++ -O2 -dynamiclib -o <path to opcode64 folder>/libbformdec2.dylib bformdec2.cpp -DUSE_DOUBLE -I<path to csound headers>
 ```
 
 Examples of paths:
