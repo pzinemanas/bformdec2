@@ -2119,8 +2119,8 @@ static void process_nfc(CSOUND *csound, HOAMBDEC* p, int signal_order, int n, in
 }*/
 
 static OENTRY localops[] = {
-  { "bformdec2.A", S(HOAMBDEC), 0, 3, (char*) "a[]", (char*)"ia[]ooooSS",
-    (SUBR)ihoambdec,  (SUBR)ahoambdec },
+  { (char*) "bformdec2.A", S(HOAMBDEC), 0, 3, (char*) "a[]", (char*) "ia[]ooooNN",
+    (SUBR)ihoambdec, (SUBR)ahoambdec },
 };
 
 LINKAGE_BUILTIN(localops)

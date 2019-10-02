@@ -4,7 +4,7 @@
 </CsOptions>
 
 <CsInstruments>
-sr = 44100
+sr = 48000
 ksmps = 16 
 0dbfs = 1
 nchnls = 2
@@ -31,7 +31,7 @@ aAmbi[2] = ay
 aAmbi[3] = az
 
 
-aOut bformdec2 iSetup,aAmbi,0,1,400,0,"hrtf-44100-left.dat","hrtf-44100-right.dat" //order1
+aOut bformdec2 iSetup,aAmbi,0,1,400,0,"hrtf-48000-left.dat","hrtf-48000-right.dat" //order1
 
 outs aOut[0], aOut[1]
 
