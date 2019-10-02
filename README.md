@@ -1,4 +1,3 @@
-P
 # bformdec2
 
 ## Compile
