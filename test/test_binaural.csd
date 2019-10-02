@@ -14,22 +14,17 @@ giOrder	=	1
 
 instr 1	
 
+iSetup	init 21 // binaural 2D
+
 ; array Ambisonics
 iArraySize	=	(giOrder+1)^2
 aAmbi[]	init	iArraySize
 
-; salida
+; output
 iOutSize	init	nchnls
-iSetup	init 21
 aOut[]	init	iOutSize
 
-aw,ax,ay,az     diskin "AJH_eight-positions.amb"
-
-aAmbi[0] = aw
-aAmbi[1] = ax
-aAmbi[2] = ay
-aAmbi[3] = az
-
+aAmbi[0],aAmbi[1],aAmbi[2],aAmbi[3]     diskin "AJH_eight-positions.amb"
 
 aOut bformdec2 iSetup,aAmbi,0,1,400,0,"hrtf-48000-left.dat","hrtf-48000-right.dat" //order1
 
