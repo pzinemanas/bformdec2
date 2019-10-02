@@ -74,6 +74,16 @@ aout[] -– loudspeaker specific output signals.
 ### Example
 See test/test_binaural.csd
 
+```
+csound test_binaural.csd --env:SADIR=<path to hrtf folder>
+```
+
+Examples of paths:
+
+```
+<path to hrtf folder>-->/usr/share/csound/hrtf
+
+```
 ### Reference
 
 For more information about the opcode and technical details see:
