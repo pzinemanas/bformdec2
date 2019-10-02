@@ -26,7 +26,7 @@ Examples of paths:
 
 ## Sintax and usage
 ```
-aout[] bformdec2 isetup, abform[], [idecoder, idistance, ifreq, imix]
+aout[] bformdec2 isetup, abform[], [idecoder, idistance, ifreq, imix, ifilel, ifiler]
 ```
 ### Initialization
 
@@ -64,6 +64,10 @@ imix - type of mix of the velocity and energy decoders' outputs
 0. Energy
 1. RMS
 2. Amplitude
+
+ifilel -- left HRTF spectral data file (see [hrtfstat documentation](http://www.csounds.com/manual/html/hrtfstat.html))
+
+ifiler -- right HRTF spectral data file (see [hrtfstat documentation](http://www.csounds.com/manual/html/hrtfstat.html))
 
 
 ### Performance
