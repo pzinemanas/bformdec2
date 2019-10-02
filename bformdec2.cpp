@@ -132,7 +132,7 @@ class hrtf {
         hrtf() {}
         virtual ~hrtf() {}
     virtual void init(void) = 0;
-    virtual int32_t hrtfstat_init(CSOUND *csound, MYFLT elev, MYFLT angle, MYFLT radius) = 0;
+    virtual int32_t hrtfstat_init(CSOUND *csound, MYFLT elev, MYFLT angle, MYFLT radius, STRINGDAT *filel, STRINGDAT *filer) = 0;
     virtual int32_t hrtfstat_process(CSOUND *csound, MYFLT *in, MYFLT *outsigl, MYFLT *outsigr, uint32_t offset, uint32_t early, uint32_t nsmps) = 0; 
 };
 
@@ -182,7 +182,7 @@ virtual void init(void) {
 }
 
 /* HRTF functions (adapted from csound/Opcodes/hrtfopcodes.c) */
-virtual int32_t hrtfstat_init(CSOUND *csound, MYFLT elev, MYFLT angle, MYFLT r)
+virtual int32_t hrtfstat_init(CSOUND *csound, MYFLT elev, MYFLT angle, MYFLT r, STRINGDAT *ifilel, STRINGDAT *ifiler)
 {
     /* left and right data files: spectral mag, phase format. */
 
@@ -241,8 +241,8 @@ virtual int32_t hrtfstat_init(CSOUND *csound, MYFLT elev, MYFLT angle, MYFLT r)
 
     sr_p = csound->GetSr(csound);
 
-    char filel[MAXNAME] = "hrtf-44100-left.dat"; //../hrtf/
-    char filer[MAXNAME] = "hrtf-44100-right.dat";
+    //char filel[MAXNAME] = "hrtf-44100-left.dat"; //../hrtf/
+    //char filer[MAXNAME] = "hrtf-44100-right.dat";
 
     if(sr_p != FL(44100.0) && sr_p != FL(48000.0) && sr_p != FL(96000.0))
       sr_p = FL(44100.0);
@@ -252,14 +252,14 @@ virtual int32_t hrtfstat_init(CSOUND *csound, MYFLT elev, MYFLT angle, MYFLT r)
                       Str("\n\nWARNING!!:\nOrchestra SR not compatible with "
                           "HRTF processing SR of: %.0f\n\n"), sr_p);
 
-    if (sr_p == FL(48000.0)) {
+  /*  if (sr_p == FL(48000.0)) {
         sprintf(filel, "%s", "hrtf-48000-left.dat");
         sprintf(filer, "%s", "hrtf-48000-right.dat");
     }
     if (sr_p == FL(96000.0)) {
         sprintf(filel, "%s", "hrtf-96000-left.dat");
         sprintf(filer, "%s", "hrtf-96000-right.dat");
-    }
+    }*/
 
 
     /* setup as per sr */
@@ -276,9 +276,11 @@ virtual int32_t hrtfstat_init(CSOUND *csound, MYFLT elev, MYFLT angle, MYFLT r)
         overlapsize = (irlength - 1);
       }
 
+    char filel[MAXNAME], filer[MAXNAME];
+
     /* copy in string name... */
-   // strncpy(filel, (char*) ifilel_p->data, MAXNAME-1); //filel[MAXNAME-1]='\0';
-    //strncpy(filer, (char*) ifiler_p->data, MAXNAME-1); //filel[MAXNAME-1]='\0';
+    strncpy(filel, (char*) ifilel->data, MAXNAME-1); //filel[MAXNAME-1]='\0';
+    strncpy(filer, (char*) ifiler->data, MAXNAME-1); //filel[MAXNAME-1]='\0';
 
     
 
@@ -812,6 +814,8 @@ typedef struct {
     MYFLT*    r; 			// Distance for NFC. If r=-1 NFC off.
     MYFLT*    freq_cut; 	// frequency of band-splitting
     MYFLT*    type_mix; 	// 0 for energy, 1 for rms, 2 for amplitude
+    STRINGDAT* ifilel;
+    STRINGDAT* ifiler;
 
     int32_t numa;         /* i-var p-time storage registers */
     int32_t numb;
@@ -1638,7 +1642,7 @@ static int32_t ihoambdec(CSOUND *csound, HOAMBDEC* p)
                 csound->AuxAlloc(csound, sizeof(hrtf_c), &p->binaural_mem[j]);  
             p->binaural[j] = new (p->binaural_mem[j].auxp) hrtf_c;    
 
-            p->binaural[j]->hrtfstat_init(csound, elev, angle[j], r);
+            p->binaural[j]->hrtfstat_init(csound, elev, angle[j], r, p->ifilel, p->ifiler);
         }
     } 
 
@@ -1657,7 +1661,7 @@ static int32_t ihoambdec(CSOUND *csound, HOAMBDEC* p)
             if (p->binaural_mem[j].auxp == NULL)
                 csound->AuxAlloc(csound, sizeof(hrtf_c), &p->binaural_mem[j]);  
             p->binaural[j] = new (p->binaural_mem[j].auxp) hrtf_c;    
-            p->binaural[j]->hrtfstat_init(csound, elev[j], angle[j], r);
+            p->binaural[j]->hrtfstat_init(csound, elev[j], angle[j], r, p->ifilel, p->ifiler);
         }
     } 
 
@@ -2115,7 +2119,7 @@ static void process_nfc(CSOUND *csound, HOAMBDEC* p, int signal_order, int n, in
 }*/
 
 static OENTRY localops[] = {
-  { "bformdec2.A", S(HOAMBDEC), 0, 3, (char*) "a[]", (char*)"ia[]oooo",
+  { "bformdec2.A", S(HOAMBDEC), 0, 3, (char*) "a[]", (char*)"ia[]ooooSS",
     (SUBR)ihoambdec,  (SUBR)ahoambdec },
 };
 

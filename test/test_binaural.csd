@@ -31,7 +31,7 @@ aAmbi[2] = ay
 aAmbi[3] = az
 
 
-aOut bformdec2 iSetup,aAmbi,0,1,400 //order1
+aOut bformdec2 iSetup,aAmbi,0,1,400,0,"hrtf-44100-left.dat","hrtf-44100-right.dat" //order1
 
 outs aOut[0], aOut[1]
 
