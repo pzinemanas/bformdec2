@@ -1,4 +1,3 @@
-P
 # bformdec2
 
 ## Compile
@@ -80,7 +79,8 @@ csound test_binaural.csd --env:SADIR=<path to hrtf folder>
 Examples of paths:
 
 ```
-<path to hrtf folder>-->/usr/share/csound/hrtf
+Linux: <path to hrtf folder> --> /usr/share/csound/hrtf
+OSX: <path to hrtf folder> --> /Library/Frameworks/CsoundLib64.framework/Versions/6.0/Resources/samples
 
 ```
 ### Reference
