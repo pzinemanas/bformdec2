@@ -1,5 +1,7 @@
 # bformdec2
 
+An opcode for decoding Ambisonics signals in Csound, with dual--band decoding and near--field compensation.
+
 ## Compile
 
 Linux:
@@ -30,9 +32,9 @@ aout[] bformdec2 isetup, abform[], [idecoder, idistance, ifreq, imix, ifilel, if
 ```
 ### Initialization
 
-Note that, as in bformdec1, horizontal angles are measured anticlockwise in this description.
+Note that, as in `bformdec1`, horizontal angles are measured anticlockwise in this description.
 
-isetup –- loudspeaker setup. There are eight supported setups:
+`isetup` –- loudspeaker setup. There are eight supported setups:
 
 1. Stereo - L(90), R(-90); this is an M+S style stereo decode.
 2. Quad - FL(45), BL(135), BR(-135), FR(-45). This is a first-order decode.
@@ -43,34 +45,35 @@ isetup –- loudspeaker setup. There are eight supported setups:
 21. 2D binaural configuration. This first decodes to a octagon configuration and then applies HRTF filters.
 31. 3D binaural configuration. This first decodes to a dodecahedron configuration and then applies HRTF filters.
 
-idecoder -- optional (default 0), select the type of decoder
+`idecoder` -- optional (default 0), select the type of decoder
 
 0. Dual decoder (velocity and energy decoders using dual-band splitting).
 1. Velocity decoder.
 2. Energy decoder.
 
-idistance -- optional (default 1 meter), select the distance (meters) to the loudspeaker (radius if regular configuration)
+`idistance` -- optional (default 1 meter), select the distance (meters) to the loudspeaker (radius if regular configuration)
 
-ifreq -- optional (default 400 Hz), frequency cut (Hz) of the band splitting filter (only importante if idecoder=0)
+`ifreq` -- optional (default 400 Hz), frequency cut (Hz) of the band splitting filter (only importante if idecoder=0)
 
-imix -- optional (default 0), type of mix of the velocity and energy decoders' outputs
+`imix` -- optional (default 0), type of mix of the velocity and energy decoders' outputs
 
 0. Energy
 1. RMS
 2. Amplitude
 
-ifilel -- left HRTF spectral data file (see [hrtfstat documentation](http://www.csounds.com/manual/html/hrtfstat.html))
+`ifilel` -- left HRTF spectral data file
 
-ifiler -- right HRTF spectral data file (see [hrtfstat documentation](http://www.csounds.com/manual/html/hrtfstat.html))
+`ifiler` -- right HRTF spectral data file
 
+Note: Spectral datafiles (based on the MIT HRTF database) should be in the current directory or the SADIR (see [hrtfstat documentation](http://www.csounds.com/manual/html/hrtfstat.html))
 
 ### Performance
-abform[] -- input signal array in the B format.
+`abform[]` -- input signal array in the B format.
 
-aout[] -– loudspeaker specific output signals.
+`aout[]` -– loudspeaker specific output signals.
 
 ### Example
-See test/test_binaural.csd
+See `test/test_binaural.csd`
 
 ```
 csound test_binaural.csd --env:SADIR=<path to hrtf folder>
