@@ -43,23 +43,17 @@ isetup –- loudspeaker setup. There are eight supported setups:
 21. 2D binaural configuration. This first decodes to a octagon configuration and then applies HRTF filters.
 31. 3D binaural configuration. This first decodes to a dodecahedron configuration and then applies HRTF filters.
 
-idecoder -- select the type of decoder
+idecoder -- optional (default 0), select the type of decoder
 
 0. Dual decoder (velocity and energy decoders using dual-band splitting).
 1. Velocity decoder.
 2. Energy decoder.
 
-> By default, the opcode uses the dual decoder.
+idistance -- optional (default 1 meter), select the distance (meters) to the loudspeaker (radius if regular configuration)
 
-idistance -- select the distance (meters) to the loudspeaker (radius if regular configuration)
+ifreq -- optional (default 400 Hz), frequency cut (Hz) of the band splitting filter (only importante if idecoder=0)
 
-> By default, the distance is set to 1 meter.
-
-ifreq - frequency cut (Hz) of the band splitting filter (only importante if idecoder=0)
-
-> By default the frequency is set to 400 Hz.
-
-imix - type of mix of the velocity and energy decoders' outputs
+imix -- optional (default 0), type of mix of the velocity and energy decoders' outputs
 
 0. Energy
 1. RMS
