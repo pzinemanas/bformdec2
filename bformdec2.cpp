@@ -241,8 +241,8 @@ virtual int32_t hrtfstat_init(CSOUND *csound, MYFLT elev, MYFLT angle, MYFLT r)
 
     sr_p = csound->GetSr(csound);
 
-    char filel[MAXNAME] = "../hrtf/hrtf-44100-left.dat";
-    char filer[MAXNAME] = "../hrtf/hrtf-44100-right.dat";
+    char filel[MAXNAME] = "hrtf-44100-left.dat"; //../hrtf/
+    char filer[MAXNAME] = "hrtf-44100-right.dat";
 
     if(sr_p != FL(44100.0) && sr_p != FL(48000.0) && sr_p != FL(96000.0))
       sr_p = FL(44100.0);
@@ -253,12 +253,12 @@ virtual int32_t hrtfstat_init(CSOUND *csound, MYFLT elev, MYFLT angle, MYFLT r)
                           "HRTF processing SR of: %.0f\n\n"), sr_p);
 
     if (sr_p == FL(48000.0)) {
-        sprintf(filel, "%s", "../hrtf/hrtf-48000-left.dat");
-        sprintf(filer, "%s", "../hrtf/hrtf-48000-right.dat");
+        sprintf(filel, "%s", "hrtf-48000-left.dat");
+        sprintf(filer, "%s", "hrtf-48000-right.dat");
     }
     if (sr_p == FL(96000.0)) {
-        sprintf(filel, "%s", "../hrtf/hrtf-96000-left.dat");
-        sprintf(filer, "%s", "../hrtf/hrtf-96000-right.dat");
+        sprintf(filel, "%s", "hrtf-96000-left.dat");
+        sprintf(filer, "%s", "hrtf-96000-right.dat");
     }
 
 
