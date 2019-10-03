@@ -34,7 +34,9 @@ aout[] bformdec2 isetup, abform[], [idecoder, idistance, ifreq, imix, ifilel, if
 
 Note that, as in `bformdec1`, horizontal angles are measured anticlockwise in this description.
 
-`isetup` –- loudspeaker setup. There are eight supported setups:
+`isetup` –- loudspeaker setup.
+
+There are eight supported setups:
 
 1. Stereo - L(90), R(-90); this is an M+S style stereo decode.
 2. Quad - FL(45), BL(135), BR(-135), FR(-45). This is a first-order decode.
@@ -51,9 +53,9 @@ Note that, as in `bformdec1`, horizontal angles are measured anticlockwise in th
 1. Velocity decoder.
 2. Energy decoder.
 
-`idistance` -- optional (default 1 meter), select the distance (meters) to the loudspeaker (radius if regular configuration)
+`idistance` -- optional (default 1 meter), select the distance (in meters) to the loudspeaker (radius if regular configuration)
 
-`ifreq` -- optional (default 400 Hz), frequency cut (Hz) of the band splitting filter (only importante if idecoder=0)
+`ifreq` -- optional (default 400 Hz), frequency cut (Hz) of the band splitting filter (only has an effect if `idecoder`=0)
 
 `imix` -- optional (default 0), type of mix of the velocity and energy decoders' outputs
 
